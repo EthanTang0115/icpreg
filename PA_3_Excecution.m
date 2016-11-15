@@ -1,5 +1,5 @@
 %% Preprocess
-A = importdata(sprintf('/PA3-A-Debug-SampleReadingsTest.txt'));
+A = importdata(sprintf('PA3data/PA3-A-Debug-SampleReadingsTest.txt'));
 Data1 = A.('data');
 NA = 6;
 NB = 6;
@@ -15,12 +15,12 @@ for i=1:Nsamps
     Markers_B_Tracker((i-1)*NB+1:i*NB,:)=Data1((i-1)*NS+NA+1:(i-1)*NS+NA+NB,:);
 end
 
-B = importdata(sprintf('/Problem3-BodyA.txt'));
+B = importdata(sprintf('PA3data/Problem3-BodyA.txt'));
 Data2 = B.('data');
 Markers_A_Body = Data2(1:NA,:);
 A_tip=Data2(NA+1,:);
 
-C = importdata(sprintf('/Problem3-BodyB.txt'));
+C = importdata(sprintf('PA3data/Problem3-BodyB.txt'));
 Data3 = C.('data');
 Markers_B_Body = Data3(1:NA,:);
 
@@ -48,8 +48,8 @@ end
 %% Find closest points and magnitude of difference
 %b_i closest points
 %mini_diff magnitude of difference
-Data4 = importdata(sprintf('/Problem3MeshFile1.txt'));
-Data5 = importdata(sprintf('/Problem3MeshFile2.txt'))+1;
+Data4 = importdata(sprintf('PA3data/Problem3MeshFile1.txt'));
+Data5 = importdata(sprintf('PA3data/Problem3MeshFile2.txt'))+1;
 %Find vertex coordinates for each triangle
 n_triangles=size(Data5,1);
 M=zeros(n_triangles,9);
